@@ -1,0 +1,68 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!-- You might want to try something fancier: -->
+<!-- html/nunjucks docs: https://mozilla.github.io/nunjucks/ -->
+<!-- pug: https://pugjs.org/ -->
+<!-- haml: http://haml.info/ -->
+<!-- hbs(handlebars): http://handlebarsjs.com/ -->
+
+<!DOCTYPE html>
+<!-- used https://getbootstrap.com/docs/4.1/content/tables/-->
+<html lang="en">
+  <head>
+    <title>Voter App</title>
+    <meta name="description" content="A cool thing made with Glitch">
+    <link id="favicon" rel="icon" href="https://glitch.com/edit/favicon-app.ico" type="image/x-icon">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  </head>
+  
+  <body class="bg-primary">
+    <div class="icon-bar">
+      <h1 style="color: white; font-family Montserrat; text-align: center">VoterPro</h1>
+      <a class="active" href="/"><i class="fa fa-home fa-large"></i></a> 
+      <a href="search.html"><i class="fa fa-search"></i></a> 
+      <a href="graphs.html"><i class="fa fa-area-chart"></i></a> 
+      <a href="users.html"><i class="fa fa-user-circle"></i></a>
+      <a href="about.html"><i class="fa fa-address-card"></i></a> 
+    </div>
+    <div class="container-fluid">
+      <div class="container-fluid">
+        <h1 class="text-light" style="text-decoration: underline; text-align: center; font-size: 60px;"><br/>
+           Voting for FreeCC<br/><br/></h1>
+           <center><h3 style="color: white">
+             You can use this service to gather votes on different topics. To start, click the button below.
+           </h3><h4 style="color: white">
+          You must sign in to create a new survey!
+        </h4></center><br />
+        <center>
+          <input type="button" class="btn btn-success btn-block" value="Click to get started!" onclick="window.location.href='https://voting-app.glitch.me/users.html'"/>
+          <br/>
+        <img src="https://s3.amazonaws.com/freecodecamp/curriculum-diagram-full.jpg" style="width: 200px;"/><br/>
+        </center>
+        
+      </div>
+    </div>
+    <!-- import the webpage's client-side javascript file -->
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+  </body>
+  
+  <footer style="color: white"><br/><br/>
+  <h4 style="position: fixed; bottom: 5px; right: 5px; font-size: 10px;">
+    Made by <a href="https://github.com/novuw" style="color: white">@Novuw</a>
+    </h4>
+  </footer>
+</html>
