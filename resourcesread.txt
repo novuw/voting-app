@@ -1,0 +1,13 @@
+Goals:
+-Add response box
+-Database search: 10 most recent queries by ID-> MLab
+-Database Search by name
+-Creation of Surveys
+-My Surveys (Created Surveys by User)
+-Graphically display data
+
+
+
+Resources Used:
+http://www.cse.msu.edu/~alexliu/publications/Cookie/cookie.pdf
+https://stackoverflow.com/questions/6922145/what-is-the-difference-between-server-side-cookie-and-client-side-cookie
