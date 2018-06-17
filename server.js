@@ -2,8 +2,28 @@
 // where your node app starts
 
 // init project
+var nodemailer = require('nodemailer');
 var express = require('express');
 var app = express();
+var lastName;
+var firstName;
+var country;
+var subject;
+var transporter = nodemailer.createTransport({
+ service: 'gmail',
+ auth: {
+        user: process.env.gmailid,
+        pass: process.env.gmailpwd
+    }
+});
+const mailOptions = {
+  from: process.env.gmailid, // sender address
+  to: process.env.gmailidrec, // list of receivers
+  subject: 'VoterPro Response or Critique', // Subject line
+  html: '<p>Your html here</p>'// plain text body
+};
+
+
 
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
@@ -27,7 +47,22 @@ app.get("/users.html", function (request, response) {
   response.sendFile(__dirname + '/views/users.html');
 });
 //good above
-
+app.use("/sourcesubmit", function(request, response){
+  lastName = request.query.lastname;
+  firstName = request.query.firstname;
+  subject = request.query.subject;
+  country = request.query.country;
+  console.log(lastName, firstName, subject, country);
+  mailOptions.html = "<p>" + "Name: " + firstName + " " + lastName + "<br/>" + "Subject: " + subject + "<br/>" + "Country: " + country + "<br/>" + "END" + "</p>";
+  transporter.sendMail(mailOptions, function (err, info) {
+   if(err)
+     console.log(err)
+   else
+     console.log(info);
+});
+  //https://medium.com/@manojsinghnegi/sending-an-email-using-nodemailer-gmail-7cfa0712a799
+  response.end("<html><body style='background-color: black'><h1 style='color: white; text-align: center; margin-top: 200'>Response sent- thank you!</h1><center><img src='https://media.mnn.com/assets/images/2013/05/grumpyCatComplain.jpg.838x0_q80.jpg'/></center></body></html>");
+});
 
 
 

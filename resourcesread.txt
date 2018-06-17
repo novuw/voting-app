@@ -1,5 +1,5 @@
 Goals:
--Add response box
+-Add response box- check
 -Database search: 10 most recent queries by ID-> MLab
 -Database Search by name
 -Creation of Surveys
