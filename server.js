@@ -9,6 +9,10 @@ var lastName;
 var firstName;
 var country;
 var subject;
+var formName;
+var oOne;
+var oTwo;
+var desc;
 var transporter = nodemailer.createTransport({
  service: 'gmail',
  auth: {
@@ -22,9 +26,27 @@ const mailOptions = {
   subject: 'VoterPro Response or Critique', // Subject line
   html: '<p>Your html here</p>'// plain text body
 };
-
-
-
+var newFormTemp = {
+  "name": formName,
+  "oOne": {
+    "title": oOne,
+    "votes": 0
+  },
+  "oTwo": {
+    "title": oTwo,
+    "votes": 0
+  },
+  "desc": desc
+};
+//input new form into mlab
+function newForm(req){
+  formName = req.query.pollName;
+  oOne = req.query.oOne;
+  oTwo = req.query.oTwo;
+  desc = req.query.description;
+  
+  
+}
 // we've started you off with Express, 
 // but feel free to use whatever libs or frameworks you'd like through `package.json`.
 
@@ -46,6 +68,9 @@ app.get("/search.html", function (request, response) {
 app.get("/users.html", function (request, response) {
   response.sendFile(__dirname + '/views/users.html');
 });
+app.get('/form-maker.html', function(req, res){
+    res.sendFile(__dirname + '/views/form-maker.html');
+});
 //good above
 app.use("/sourcesubmit", function(request, response){
   lastName = request.query.lastname;
@@ -63,7 +88,8 @@ app.use("/sourcesubmit", function(request, response){
   //https://medium.com/@manojsinghnegi/sending-an-email-using-nodemailer-gmail-7cfa0712a799
   response.end("<html><body style='background-color: black'><h1 style='color: white; text-align: center; margin-top: 200'>Response sent- thank you!</h1><center><img src='https://media.mnn.com/assets/images/2013/05/grumpyCatComplain.jpg.838x0_q80.jpg'/></center></body></html>");
 });
-
+app.use("/newform",function(req, res){
+});
 
 
 

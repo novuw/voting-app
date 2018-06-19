@@ -58,7 +58,7 @@
   <center><div id="datapad" class="container-fluid bg-dark col-lg-2"><br/>
     <h1 class="text-light" style="text-align: center; text-decoration: underline">
           <strong>Sign-In Page</strong>
-      </h1><br/>
+      </h1>
   <div class="g-signin2" data-onsuccess="onSignIn" data-height="50" data-width="220" data-longtitle="true" data-theme="dark"></div><br/>
     
     
@@ -70,21 +70,28 @@
            <p id="email"></p>
          
       </div>
-      <button onclick="signOut();" class="btn bg-danger" id="SO" style="color: white"><strong>Sign out</strong></button><br/><br/>
+      <button onclick="redir();" class="btn bg-success" id="mkv" style="color: white"><strong>Make Poll</strong></button><br/>
+      <button onclick="signOut();" class="btn bg-danger" id="SO" style="color: white"><strong>Sign out</strong></button><br/>
     </div></center>
   
   
 <script>
   function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-    alert("You have been successfully signed out");
-    $(".g-signin2").css("display", "block");
-    $("#SO").css("display", "none");
-    $(".data").css("display", "none");
+   var auth2 = gapi.auth2.getAuthInstance();
+      console.log(gapi.auth2.getAuthInstance().isSignedIn.get());
+      auth2.signOut().then(function () {
+        console.log('User signed out.');
+      });
+      alert("You have been successfully signed out");
+      $(".g-signin2").css("display", "block");
+      $("#SO").css("display", "none");
+      $("#mkv").css("display", "none");
+      $(".data").css("display", "none");
   }
+  function redir(){
+    document.location.href = 'https://voting-app.glitch.me/form-maker.html';
+  }
+
 </script>
 <!-- 
   <footer style="color: white">
