@@ -61,7 +61,7 @@ input[id="searchQuery"]:focus {
 #SO:hover{
   cursor: pointer;
 }
-#SO{
+#SO,#mkv{
   display: none;
 }
 h1{
