@@ -2,6 +2,8 @@
 // where your node app starts
 
 // init project
+var mongo = require('mongodb').MongoClient;
+var urlMongo = process.env.mongoDatabase;
 var nodemailer = require('nodemailer');
 var express = require('express');
 var app = express();
@@ -13,6 +15,8 @@ var formName;
 var oOne;
 var oTwo;
 var desc;
+var newFormTemp
+
 var transporter = nodemailer.createTransport({
  service: 'gmail',
  auth: {
@@ -20,35 +24,52 @@ var transporter = nodemailer.createTransport({
         pass: process.env.gmailpwd
     }
 });
+
 const mailOptions = {
   from: process.env.gmailid, // sender address
   to: process.env.gmailidrec, // list of receivers
   subject: 'VoterPro Response or Critique', // Subject line
   html: '<p>Your html here</p>'// plain text body
 };
-var newFormTemp = {
-  "name": formName,
+
+
+
+//input new form into mlab
+function newForm(req, res){
+  /*formName = req.query.pollName;
+  oOne = req.query.oOne;
+  oTwo = req.query.oTwo;
+  desc = req.query.description;*/
+  //setup form
+  newFormTemp = {
+  "name": req.query.pollName,
   "oOne": {
-    "title": oOne,
+    "title": req.query['1O'],
     "votes": 0
   },
   "oTwo": {
-    "title": oTwo,
+    "title": req.query['2O'],
     "votes": 0
   },
-  "desc": desc
+  "desc": req.query.description
 };
-//input new form into mlab
-function newForm(req){
-  formName = req.query.pollName;
-  oOne = req.query.oOne;
-  oTwo = req.query.oTwo;
-  desc = req.query.description;
-  
-  
+  console.log(JSON.stringify(newFormTemp));
+  //insert form into database
+  //connect to mongodb and insert new file
+  mongo.connect(urlMongo, function(err, client){
+      if (err) throw err;
+      var db = client.db('voterpro');
+      var surveys = db.collection('surveys');
+      surveys.insert(newFormTemp);    
+      client.close();
+  });
+  res.sendFile(__dirname + '/views/formsubmitted.html');
 }
-// we've started you off with Express, 
-// but feel free to use whatever libs or frameworks you'd like through `package.json`.
+
+//connect to mongodb and insert new file
+
+
+
 
 // http://expressjs.com/en/starter/static-files.html
 app.use(express.static('public'));
@@ -89,8 +110,9 @@ app.use("/sourcesubmit", function(request, response){
   response.end("<html><body style='background-color: black'><h1 style='color: white; text-align: center; margin-top: 200'>Response sent- thank you!</h1><center><img src='https://media.mnn.com/assets/images/2013/05/grumpyCatComplain.jpg.838x0_q80.jpg'/></center></body></html>");
 });
 app.use("/newform",function(req, res){
+  newForm(req, res);
+  //res.sendFile(__dirname + '/views/users.html');
 });
-
 
 
 //good below
