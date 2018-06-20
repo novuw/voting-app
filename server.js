@@ -16,6 +16,7 @@ var oOne;
 var oTwo;
 var desc;
 var newFormTemp
+var USERNAME;
 
 var transporter = nodemailer.createTransport({
  service: 'gmail',
@@ -51,7 +52,8 @@ function newForm(req, res){
     "title": req.query['2O'],
     "votes": 0
   },
-  "desc": req.query.description
+  "desc": req.query.description,
+  "user": USERNAME
 };
   console.log(JSON.stringify(newFormTemp));
   //insert form into database
@@ -90,7 +92,9 @@ app.get("/users.html", function (request, response) {
   response.sendFile(__dirname + '/views/users.html');
 });
 app.get('/form-maker.html', function(req, res){
+    USERNAME = req.query.user;
     res.sendFile(__dirname + '/views/form-maker.html');
+    return USERNAME;
 });
 //good above
 app.use("/sourcesubmit", function(request, response){

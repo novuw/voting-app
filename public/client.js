@@ -27,5 +27,6 @@ function onSignIn(googleUser) {
   $("#pic").attr("src", profile.getImageUrl());
   $("#email").text(profile.getEmail());
   $("#name").text(profile.getName());
-
+  $('#user').text(profile.getName());
 }
+

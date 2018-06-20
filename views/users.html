@@ -70,7 +70,12 @@
            <p id="email"></p>
          
       </div>
-      <button onclick="redir();" class="btn bg-success" id="mkv" style="color: white"><strong>Make Poll</strong></button><br/>
+      <form action="/form-maker.html">
+          <button class="btn bg-success" id="mkv" style="color: white"><strong>Make Poll</strong></button><br/>
+        <textarea id="user" name="user" style="display: none"></textarea>
+      </form>
+    
+    
       <button onclick="signOut();" class="btn bg-danger" id="SO" style="color: white"><strong>Sign out</strong></button><br/>
     </div></center>
   
@@ -87,7 +92,9 @@
       $("#SO").css("display", "none");
       $("#mkv").css("display", "none");
       $(".data").css("display", "none");
+      
   }
+  //onclick="redir();"
   function redir(){
     document.location.href = 'https://voting-app.glitch.me/form-maker.html';
   }
