@@ -1,7 +1,11 @@
 Goals:
--Database search: 10 most recent queries by ID-> MLab
--My Surveys (Created Surveys by User)
+-Add response box- check
+-Database search: 10 most recent queries by ID-> MLab- check
+-Database Search by name - check
+-My Surveys (Created Surveys by User)- check
 -Graphically display data
+-vote for one side
+
 
 
 

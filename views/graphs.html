@@ -36,8 +36,7 @@
            $('#addRows').append('<tr><th scope="row">'+ formName +'</th><td>'+ USERNAME +'</td><td>'+ oOne + '/' + oTwo +'</td><td>'+ desc +'</td></tr>');
         }
     }
-    
-    
+      
     $.ajax({
             url: 'https://api.mlab.com/api/1/databases/voterpro/collections/surveys?apiKey=XwubhE1vzrlUofAGyt_OzccWmOuUFQPl',
             type: "GET",
@@ -72,9 +71,9 @@
           </thead>
           <tbody id="addRows">
           <tr>
-            <th scope="row">This page displays the last 10 surveys made.</th>
+            <th scope="row">This page displays the previous surveys.</th>
             <td>Elijah Harbut</td>
-            <td>6/15/18</td>
+            <td>Good/Bad</td>
             <td>First real application!</td>
           </tr>
           </tbody>
