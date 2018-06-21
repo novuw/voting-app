@@ -45,8 +45,9 @@
            oTwov = json[i].oTwo.votes.toString();
            desc = json[i].desc;
            USERNAME = json[i].user;
-            $('#informationFile').append('<div class="well"><h4 class="infoTitle"> '+formName+'</h4></br><h2 class="infoBody"><strong>Side One: '+oOne+'</strong></h2></br><h4 class="infoBody">Votes: '+oOnev+'</h4></br><h2 class="infoBody"><strong>Side Two: '+oTwo+'</strong></h2></br><h4 class="infoBody">Votes: '+oTwov+'</h4></br><h4 class="infoBody">Made By: '+USERNAME+'</h4></br></div><br/>');
+            $('#informationFile').append('<div class="well"><h4 class="infoTitle"> '+formName+'</h4></br><h2 class="infoBody"><strong>Side One: '+oOne+'</strong></h2></br><button onclick="vote();" class="btn bg-danger" id="vote1" style="color: white"><strong>Vote</strong></button><br/><br/><h4 class="infoBody" id="firstV">Votes: '+oOnev+'</h4></br><h2 class="infoBody"><strong>Side Two: '+oTwo+'</strong></h2></br><button onclick="vote2();" class="btn bg-danger" id="vote2" style="color: white"><strong>Vote</strong></button><br/><br/><h4 class="infoBody" id="secondV">Votes: '+oTwov+'</h4></br><h4 class="infoBody">Made By: '+USERNAME+'</h4></br></div><br/>');
 
+      
         }        
     }else{
         $("#nores").css("display", "block");
@@ -67,6 +68,7 @@
           });
 
   </script>
+  <script src="/vote.js"></script>
   <body class="bg-primary">
     <div class="icon-bar">
       <h1 style="color: white; font-family Montserrat; text-align: center">VoterPro</h1>
