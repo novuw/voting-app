@@ -1,7 +1,5 @@
 Goals:
--Add response box- check
 -Database search: 10 most recent queries by ID-> MLab
--Database Search by name
 -My Surveys (Created Surveys by User)
 -Graphically display data
 

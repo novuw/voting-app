@@ -40,9 +40,9 @@
           //add formatting for each cell from surveys from wikipedia git
            formName = json[i].name;
            oOne = json[i].oOne.title;
-           oOnev = toString(json[i].oOne.votes);
+           oOnev = json[i].oOne.votes.toString();
            oTwo = json[i].oTwo.title;
-           oTwov = toString(json[i].oTwo.votes);
+           oTwov = json[i].oTwo.votes.toString();
            desc = json[i].desc;
            USERNAME = json[i].user;
             $('#informationFile').append('<div class="well"><h4 class="infoTitle"> '+formName+'</h4></br><h2 class="infoBody"><strong>Side One: '+oOne+'</strong></h2></br><h4 class="infoBody">Votes: '+oOnev+'</h4></br><h2 class="infoBody"><strong>Side Two: '+oTwo+'</strong></h2></br><h4 class="infoBody">Votes: '+oTwov+'</h4></br><h4 class="infoBody">Made By: '+USERNAME+'</h4></br></div><br/>');
