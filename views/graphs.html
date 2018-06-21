@@ -34,9 +34,10 @@
            desc = json[i].desc;
            USERNAME = json[i].user;
            $('#addRows').append('<tr><th scope="row">'+ formName +'</th><td>'+ USERNAME +'</td><td>'+ oOne + '/' + oTwo +'</td><td>'+ desc +'</td></tr>');
+           $('#dropdown').append('<option >'+ formName + ': vote=' + json[i].oOne.votes.toString() + '/' + json[i].oTwo.votes.toString() +'</option>');
         }
     }
-      
+     //value = '+ json[i].oOne.votes.toString() + '/' + json[i].oTwo.votes.toString +' 
     $.ajax({
             url: 'https://api.mlab.com/api/1/databases/voterpro/collections/surveys?apiKey=XwubhE1vzrlUofAGyt_OzccWmOuUFQPl',
             type: "GET",
@@ -46,8 +47,6 @@
               alert(err);
             }
           });
-  
-  
   </script>
   <body>
     <div class="icon-bar">
@@ -70,6 +69,17 @@
             </tr>
           </thead>
           <tbody id="addRows">
+          <tr class="table-dark text-dark">
+            <th scope="row">Graph Maker</th> 
+            <td>Create a graph for the data!</td>
+            <td colspan="4"><form action="/graphdisp.html">
+              <select id="dropdown" style="border-radius: 25px;" name="drp">
+              </select>
+              <input type="submit" class="btn btn-primary btn-sm" style="margin-left: 10%"/>
+              </form></td>
+              
+              
+          </tr>
           <tr>
             <th scope="row">This page displays the previous surveys.</th>
             <td>Elijah Harbut</td>

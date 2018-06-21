@@ -119,7 +119,9 @@ app.use("/newform",function(req, res){
 app.use("/searchres.html", function(req, res){
     res.sendFile(__dirname + '/views/searchres.html');
 });
-
+app.get("/graphdisp.html", function (request, response) {
+  response.sendFile(__dirname + '/views/graphdisp.html');
+});
 //good below
 app.use(function(req, res){
     res.sendFile(__dirname + '/views/404.html');
