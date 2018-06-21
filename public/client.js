@@ -18,6 +18,26 @@ auth2.signOut.then(function(){
 });
 }
 */
+
+function request(name){
+    var search = '{"user":"' + name + '"}';
+    $.ajax({
+            url: 'https://api.mlab.com/api/1/databases/voterpro/collections/surveys?q=' + search + '&apiKey=XwubhE1vzrlUofAGyt_OzccWmOuUFQPl', /*+process.env.mongoAPIKEY*/
+            type: "GET",
+            dataType: 'json',
+            success: mySuccess,
+            error: function(err){
+              alert(err);
+            }
+          }); 
+}
+function mySuccess(json){
+  console.log(json);
+      for (var i = 0; i < json.length; i++){
+            $('#mysurveys').append(json[i].name+ '</br>');
+      }
+    }
+
 function onSignIn(googleUser) {
   var profile = googleUser.getBasicProfile();
   $(".g-signin2").css("display", "none");
@@ -28,5 +48,5 @@ function onSignIn(googleUser) {
   $("#email").text(profile.getEmail());
   $("#name").text(profile.getName());
   $('#user').text(profile.getName());
+  request(profile.getName());
 }
-
