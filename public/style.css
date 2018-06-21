@@ -1,6 +1,6 @@
 /* styles */
 /* called by your view template */
-
+select:focus {outline:0;}
 * {
   box-sizing: border-box;
 }

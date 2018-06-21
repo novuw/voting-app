@@ -4,7 +4,7 @@ Goals:
 -Database Search by name - check
 -My Surveys (Created Surveys by User)- check
 -Graphically display data
--vote for one side
+-vote for one side-check
 
 
 
