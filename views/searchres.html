@@ -19,12 +19,34 @@
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
+  <style>
+    h2{
+      font-size: 40px;
+      font-family: Verdana;
+    }
+  </style>
   <script>
+    var formName;
+    var oOne;
+    var oTwo;
+    var desc;
+    var USERNAME;
+    var oOnev;
+    var oTwov;
   function mySuccess(json){
     console.log(JSON.stringify(json));
     if (json.length != 0){
         for (var i = 0; i < json.length; i++){
           //add formatting for each cell from surveys from wikipedia git
+           formName = json[i].name;
+           oOne = json[i].oOne.title;
+           oOnev = toString(json[i].oOne.votes);
+           oTwo = json[i].oTwo.title;
+           oTwov = toString(json[i].oTwo.votes);
+           desc = json[i].desc;
+           USERNAME = json[i].user;
+            $('#informationFile').append('<div class="well"><h4 class="infoTitle"> '+formName+'</h4></br><h2 class="infoBody"><strong>Side One: '+oOne+'</strong></h2></br><h4 class="infoBody">Votes: '+oOnev+'</h4></br><h2 class="infoBody"><strong>Side Two: '+oTwo+'</strong></h2></br><h4 class="infoBody">Votes: '+oTwov+'</h4></br><h4 class="infoBody">Made By: '+USERNAME+'</h4></br></div><br/>');
+
         }        
     }else{
         $("#nores").css("display", "block");
@@ -63,9 +85,11 @@
           <h2 class="text-light" id="nores" style="text-align: center; font-size: 50px; display: none">No results found. Make sure to search the exact title!</h2>
       </div>
     </div>
+    <center>
     <div id="informationFile" class="info">
 
     </div>
+      </center>
     <!-- import the webpage's client-side javascript file -->
 
     <!-- include the Glitch button to show what the webpage is about and
