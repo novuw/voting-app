@@ -17,7 +17,6 @@ var oTwo;
 var desc;
 var newFormTemp
 var USERNAME;
-
 var transporter = nodemailer.createTransport({
  service: 'gmail',
  auth: {
@@ -117,7 +116,9 @@ app.use("/newform",function(req, res){
   newForm(req, res);
   //res.sendFile(__dirname + '/views/users.html');
 });
-
+app.use("/searchres.html", function(req, res){
+    res.sendFile(__dirname + '/views/searchres.html');
+});
 
 //good below
 app.use(function(req, res){

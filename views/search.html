@@ -16,22 +16,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
-  <script>
-  function mySuccess(json){
-    console.log(JSON.stringify(json));
-  }
-  $.ajax({
-            url: 'https://api.mlab.com/api/1/databases/voterpro/collections/surveys?apiKey=XwubhE1vzrlUofAGyt_OzccWmOuUFQPl' /*+process.env.mongoAPIKEY*/,
-            type: "GET",
-            dataType: 'json',
-            success: mySuccess,
-            error: function(jsonp){
-                alert('error!' + JSON.stringify(json));
-            }
-        });
-  </script>
   <body class="bg-primary">
     <div class="icon-bar">
       <h1 style="color: white; font-family Montserrat; text-align: center">VoterPro</h1>
@@ -49,8 +34,8 @@
     <br/>
     <center>
     <div class="container-fluid">
-       <form>
-        <input id="searchQuery" name="searchBox" placeholder="Search" autocomplete="off">
+       <form action="/searchres.html">
+          <input id="searchQuery" name="searchBox" placeholder="Search" autocomplete="off">
        </form>
     </div>
   </center>
