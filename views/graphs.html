@@ -16,8 +16,40 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
   </head>
+  <script>
+    var formName;
+    var oOne;
+    var oTwo;
+    var desc;
+    var USERNAME;
+    function mySuccess(json){
+            console.log(json);
+           
+        for (var i = 0; i < json.length; i++){
+           formName = json[i].name;
+           oOne = json[i].oOne.title;
+           oTwo = json[i].oTwo.title;
+           desc = json[i].desc;
+           USERNAME = json[i].user;
+           $('#addRows').append('<tr><th scope="row">'+ formName +'</th><td>'+ USERNAME +'</td><td>'+ oOne + '/' + oTwo +'</td><td>'+ desc +'</td></tr>');
+        }
+    }
+    
+    
+    $.ajax({
+            url: 'https://api.mlab.com/api/1/databases/voterpro/collections/surveys?apiKey=XwubhE1vzrlUofAGyt_OzccWmOuUFQPl',
+            type: "GET",
+            dataType: 'json',
+            success: mySuccess,
+            error: function(err){
+              alert(err);
+            }
+          });
   
+  
+  </script>
   <body>
     <div class="icon-bar">
       <h1 style="color: white; font-family Montserrat; text-align: center">VoterPro</h1>
@@ -34,11 +66,11 @@
              <tr>
               <th scope="col">Topic</th>
               <th scope="col">Creator</th>
-              <th scope="col">Date</th>
+              <th scope="col">Sides</th>
               <th scope="col">Description</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="addRows">
           <tr>
             <th scope="row">This page displays the last 10 surveys made.</th>
             <td>Elijah Harbut</td>
